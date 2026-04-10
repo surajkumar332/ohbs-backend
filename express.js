@@ -20,6 +20,8 @@ app.use(express.json());
 // Db connect
 connectDb();
 
+const PORT = process.env.PORT || 3000;
+
 
 app.use("/", userRoute);
 app.use("/hotels", hotelsRouter);
@@ -42,6 +44,6 @@ app.get("/", (req, res)=> {
     res.send("server is running...");
 });
 
-app.listen(3000, ()=> {
-    console.log("Server is running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
 });

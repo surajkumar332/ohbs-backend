@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.post("/Register", async (req, res) => {
     const { userName, userPassword, userMobileNo } = req.body;
+    console.log(req.body, "g ram ram");
     const existingUser = await Users.findOne({ userMobileNo });
     if (existingUser) return res.status(400).json({ message: "User already exists" });
     const hashedPassword = await bcrypt.hash(userPassword, 10);
